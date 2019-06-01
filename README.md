@@ -32,8 +32,8 @@ Things you may want to cover:
 |encrypted_password|string|null: false|
 
 ### Association
-- has_many :menbers
-- has_many :groups, through: :menbers
+- has_many :members
+- has_many :groups, through: :members
 - has_many :messages
 
 ## groupsテーブル
@@ -42,8 +42,8 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-- has_many :menbers
-- has_many :users, through: :menbers
+- has_many :members
+- has_many :users, through: :members
 - has_many :messages
 
 ## membersテーブル
