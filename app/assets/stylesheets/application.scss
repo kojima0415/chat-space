@@ -3,7 +3,6 @@
 @import "./config/variable";
 @import "./mixin/mixin-messages";
 
-@import "./partials/announcement";
 @import "./messages";
 @import "./partials/messages-side-header";
 @import "./partials/messages-side-groups";
@@ -12,3 +11,6 @@
 @import "./partials/messages-main-footer";
 
 @import "modules/user";
+
+@import "config/colors";
+@import "modules/flash";
