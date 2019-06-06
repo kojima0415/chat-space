@@ -1,0 +1,16 @@
+*{
+  box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+.wrapper{
+  .side-contents{
+    float: left;
+    width: $side_width;
+  }
+  .main-contents{
+    float: left;
+    width: $main_width;
+  }
+}
