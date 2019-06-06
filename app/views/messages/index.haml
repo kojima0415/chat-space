@@ -24,3 +24,12 @@
       = render partial:"main-message"
       = render partial:"main-message"
       = render partial:"main-message"
+    .main-footer
+      .main-form
+        %form.input-box
+          .input-details
+            %input.input-details__message{placeholder: "type a message"}
+            %input.input-details__file{type: "file", name: "image-file", id: "upload-icon"}
+            %label.input-details__label{for: "upload-icon"}
+              =fa_icon "image lg"
+          %input.input-box__button{type: "submit", value: "Send"}
