@@ -9,3 +9,11 @@ $base_gray_color: #434A54;
 $dark_gray_color: #333333;
 
 $border_color: #eeeeee;
+
+$side_width: 300px;
+$main_width: calc(100vw - 300px);
+
+$header_height: 100px;
+$side_groups_height: calc(100vh - 100px);
+$main_messages_height: calc(100vh - 190px);
+$main_footer_height: 90px;
