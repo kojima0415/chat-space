@@ -1,0 +1,22 @@
+.side-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include width-height-bgcolor($side_width, $header_height, $side_header_bg_color);
+  padding: 0 20px;
+  &__user-name{
+    @include color-size-weight($white_color, 16px, bold);
+  }
+  .side-lists{
+    color: $white_color;
+    &__list{
+      float: left;
+      margin-left: 5px;
+      list-style: none;
+       &--link, &:visited{
+        color: $white_color;
+        text-decoration: none;
+      }
+    }
+  }
+}
