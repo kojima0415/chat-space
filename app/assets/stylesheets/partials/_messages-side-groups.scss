@@ -1,0 +1,15 @@
+.side-groups{
+  overflow: scroll;
+  @include width-height-bgcolor($side_width, $side_groups_height, $side_groups_bg_color);
+  padding: 20px 20px 0px;
+  .side-group{
+    margin-bottom: 40px;
+    cursor: pointer;
+    &__group-name{
+      @include color-size-weight($white_color, 15px, bold);
+    }
+    &__new-message{
+      @include color-size-weight($white_color, 11px, bold);
+    }
+  }
+}
