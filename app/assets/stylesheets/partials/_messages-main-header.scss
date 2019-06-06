@@ -1,0 +1,29 @@
+.main-header{
+  display: flex;
+  justify-content: space-between;
+  height: $header_height;
+  padding: 0 40px; 
+  border-bottom: solid 1px $border_color;
+    .main-content{
+      margin-top: 35px;
+      white-space: nowrap;
+      &__group-name{
+        @include color-size-weight($dark_gray_color, 20px);
+        margin-bottom: 15px;
+      }
+      .main-members{
+        display: flex; 
+        &__member{
+        @include color-size-weight($light_gray_color, 12px);
+        margin-bottom:0;
+        list-style-type: none;
+        }
+      }
+    }
+    &__edit-button{
+      height: 40px;
+      @include box-button($light_blue_color, 40px);
+      margin-top: 28px;
+      padding: 0 20px;
+    }
+}
