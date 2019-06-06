@@ -1,0 +1,12 @@
+@import "./reset";
+@import "font-awesome";
+@import "./config/variable";
+@import "./mixin/mixin-messages";
+
+@import "./partials/announcement";
+@import "./messages";
+@import "./partials/messages-side-header";
+@import "./partials/messages-side-groups";
+@import "./partials/messages-main-header";
+@import "./partials/messages-main-messages";
+@import "./partials/messages-main-footer";

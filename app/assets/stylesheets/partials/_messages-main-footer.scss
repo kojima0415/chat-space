@@ -1,0 +1,36 @@
+.main-footer{
+  @include width-height-bgcolor(null, $main_footer_height, #dddddd);
+  margin-bottom: 0;
+  padding: 20px 40px;
+  .main-form{
+    @include width-height-bgcolor(100%, 50px);
+    .input-box{
+      display: flex;
+      justify-content: space-between;
+      @include width-height-bgcolor;
+      .input-details{
+        display: flex;
+        position: relative;
+        @include width-height-bgcolor;
+        &__message{
+          @include width-height-bgcolor(100%, 50px);
+          padding: 0 50px 0 10px;
+        }
+        &__file{
+          display: none;
+        }
+          .fa-image{
+            position: absolute;
+            line-height: 50px;
+            right: 10px;
+        }
+      }
+      &__button{
+        @include width-height-bgcolor(100px, 50px, $light_blue_color);
+        @include box-button($white_color, 50px, none);
+        margin-left: 15px;
+        padding: 0 30px;
+      }
+    }
+  }
+}

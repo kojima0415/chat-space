@@ -1,0 +1,16 @@
+@mixin width-height-bgcolor($width: 100%, $height: 100%, $bgcolor: null){
+  width: $width;
+  height: $height;
+  background-color: $bgcolor;
+}
+@mixin color-size-weight($color: null, $size: null, $weight: normal){
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+}
+@mixin box-button($color: null, $l-height: null, $border: solid 1px){
+  cursor: pointer;
+  color: $color;
+  line-height: $l-height;
+  border: $border;
+}

@@ -1,0 +1,22 @@
+.main-messages{
+  overflow: scroll;
+  @include width-height-bgcolor(null, $main_messages_height,$main_messages_bg_color);
+  padding: 46px 40px 0;
+  .main-message{
+    .message-details{
+      display: flex;
+      padding-bottom: 10px;
+      &__user{
+        @include color-size-weight($base_gray_color, 16px, bold);
+      }
+      &__informetion{
+        @include color-size-weight($light_gray_color, 12px);
+        margin-left: 10px;
+      }
+    }
+    &__text{
+      @include color-size-weight($base_gray_color, 14px);
+      padding-bottom: 40px;
+    }
+  }
+}
