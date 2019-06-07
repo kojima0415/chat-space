@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+    @group = Group.new(group_params)
   end
 
   def edit
