@@ -27,7 +27,7 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, index: true|
+|name|string|null: false, unique: true, index: true|
 |email|string|null: false, unique: true, index: true|
 |encrypted_password|string|null: false|
 
@@ -39,7 +39,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, unique: true, index: true|
 
 ### Association
 - has_many :members
