@@ -3,12 +3,13 @@
   .main-contents
     .main-header
       .main-content
-        %p.main-content__group-name TEST-GROUP NAME
+        %p.main-content__group-name= @group.name
         %ul.main-members 
           %li.main-members__member Member :
           %li.main-members__member name
           %li.main-members__member ,name
-      .main-header__edit-button Edit
+      = link_to edit_group_path(@group) do
+        .main-header__edit-button Edit
     .main-messages
       = render partial:"shared/main-message"
       = render partial:"shared/main-message"
