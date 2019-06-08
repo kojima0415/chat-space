@@ -16,10 +16,10 @@
       = render partial:"shared/main-message"
     .main-footer
       .main-form
-        %form.input-box
+        = form_for [@group, @message], html: {class: "input-box"} do |f|
           .input-details
-            %input.input-details__message{placeholder: "type a message"}
-            %input.input-details__file{type: "file", name: "image-file", id: "upload-icon"}
-            %label.input-details__label{for: "upload-icon"}
-              =fa_icon "image lg"
-          %input.input-box__button{type: "submit", value: "Send"}
+            = f.text_field :body, class: "input-details__message", placeholder: "type a message"
+            = f.label :image, for: "upload-icon" do
+              = f.file_field :image, class: 'input-details__file', id: "upload-icon"
+              = fa_icon "image lg"
+          = f.submit 'Send', class: "input-box__button"
