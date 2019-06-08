@@ -1,27 +1,19 @@
 .wrapper
-  .side-contents
-    .side-header
-      %p.side-header__user-name= current_user.name
-      %ul.side-lists
-        %li.side-lists__list= link_to content_tag(:p, fa_icon("edit")), new_group_path, class: "side-lists__list--link"
-        %li.side-lists__list= link_to content_tag(:p, fa_icon("cog")), edit_user_path(current_user), class: "side-lists__list--link"
-    .side-groups
-      = render partial: "side-group"
-      = render partial: "side-group"
-      = render partial: "side-group"
+  =render 'shared/side-contents'
   .main-contents
     .main-header
       .main-content
-        %p.main-content__group-name TEST-GROUP NAME
+        %p.main-content__group-name= @group.name
         %ul.main-members 
           %li.main-members__member Member :
           %li.main-members__member name
           %li.main-members__member ,name
-      .main-header__edit-button Edit
+      = link_to edit_group_path(@group) do
+        .main-header__edit-button Edit
     .main-messages
-      = render partial:"main-message"
-      = render partial:"main-message"
-      = render partial:"main-message"
+      = render partial:"shared/main-message"
+      = render partial:"shared/main-message"
+      = render partial:"shared/main-message"
     .main-footer
       .main-form
         %form.input-box
