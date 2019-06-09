@@ -16,6 +16,7 @@
         &__member{
         @include color-size-weight($light_gray_color, 12px);
         margin-bottom:0;
+        padding-right: 5px;
         list-style-type: none;
         }
       }
