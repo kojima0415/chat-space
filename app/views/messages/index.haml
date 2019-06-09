@@ -3,7 +3,8 @@
   .main-contents
     .main-header
       .main-content
-        %p.main-content__group-name= @group.name
+        %p.main-content__group-name
+          = @group.name
         %ul.main-members 
           %li.main-members__member.main-members__member-title Member：
           - @group.users.each do |user|
