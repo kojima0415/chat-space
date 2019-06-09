@@ -3,17 +3,17 @@
   .main-contents
     .main-header
       .main-content
-        %p.main-content__group-name= @group.name
+        %p.main-content__group-name
+          = @group.name
         %ul.main-members 
-          %li.main-members__member Member :
-          %li.main-members__member name
-          %li.main-members__member ,name
+          %li.main-members__member.main-members__member-title Member：
+          - @group.users.each do |user|
+            %li.main-members__member
+              = user.name
       = link_to edit_group_path(@group) do
         .main-header__edit-button Edit
     .main-messages
-      = render partial:"shared/main-message"
-      = render partial:"shared/main-message"
-      = render partial:"shared/main-message"
+      = render partial:"shared/message", collection: @messages
     .main-footer
       .main-form
         = form_for [@group, @message], html: {class: "input-box"} do |f|
