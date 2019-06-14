@@ -45,5 +45,8 @@ $(document).on('turbolinks:load',function(){
     .fail(function(){
       alert('メッセージを入力してください。');
     })
+    .always(function(){
+      $('.input-box__button').removeAttr("disabled");
+    });
   });
 });
