@@ -11,5 +11,9 @@ $(document).on('turbolinks:load',function(){
       processData: false,
       contentType: false
     })
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.main-messages').append(html);
+    })
   });
 });
