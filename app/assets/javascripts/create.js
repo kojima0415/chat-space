@@ -42,5 +42,8 @@ $(document).on('turbolinks:load',function(){
       $('.input-details__file[type="file"]').val(null);
       $('.main-messages').animate({scrollTop: $('.main-messages')[0].scrollHeight },'fast');
     })
+    .fail(function(){
+      alert('メッセージを入力してください。');
+    })
   });
 });
