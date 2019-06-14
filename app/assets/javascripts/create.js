@@ -38,8 +38,7 @@ $(document).on('turbolinks:load',function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main-messages').append(html);
-      $('.input-details__message').val('');
-      $('.input-details__file[type="file"]').val(null);
+      $(".input-box")[0].reset();
       $('.main-messages').animate({scrollTop: $('.main-messages')[0].scrollHeight },'fast');
     })
     .fail(function(){
