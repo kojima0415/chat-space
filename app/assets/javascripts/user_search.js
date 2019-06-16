@@ -9,6 +9,9 @@
     .done(function(users){
       $('#user-search-result').empty();
       if (input.length ==0 ) {
+      }else if (users.length !== 0) {
+        users.forEach(function(user){
+        });
       }else{
         appendhtml_none('一致するユーザーはありません。');
       };
