@@ -43,4 +43,5 @@ $(document).on('turbolinks:load',function(){
   $('#user-search-result').on('click','.user-search-add', function(){
     var id = $(this).attr('data-user-id');
     var name = $(this).attr('data-user-name');
+    $(this).parent().remove();
   });
