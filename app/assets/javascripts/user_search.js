@@ -8,5 +8,9 @@
     })
     .done(function(users){
       $('#user-search-result').empty();
+      if (input.length ==0 ) {
+      }else{
+        appendhtml_none('一致するユーザーはありません。');
+      };
     })
   });
