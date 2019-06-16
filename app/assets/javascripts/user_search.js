@@ -35,4 +35,9 @@ $(document).on('turbolinks:load',function(){
         appendhtml_none('一致するユーザーはありません。');
       };
     })
+    .fail(function () {
+      alert('ユーザー検索に失敗しました。');
+    })
+  });
+
   });
