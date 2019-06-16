@@ -21,15 +21,16 @@
     .chat-group-form__field--left
       = f.label 'チャットメンバー', class: 'chat-group-form__label', for: 'chat_group_チャットメンバー'
     .chat-group-form__field--right
-      = f.collection_check_boxes :user_ids, User.all, :id, :name
-      / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
-      /
-        <div id='chat-group-users'>
-        <div class='chat-group-user clearfix' id='chat-group-user-22'>
-        <input name='chat_group[user_ids][]' type='hidden' value='22'>
-        <p class='chat-group-user__name'>seo_kyohei</p>
-        </div>
-        </div>
+      #chat-group-users
+        .chat-group-user.clearfix{id: "chat-group-user-#{current_user.id}"}
+          =f.hidden_field :'current_user', name: 'group[user_ids][]', value: current_user.id
+          %p.chat-group-user__name= current_user.name
+        - group.users.each do |user|
+          - unless user.id == current_user.id
+            .chat-group-user.clearfix.js-chat-member{id: "chat-group-user-#{user.id}"}
+              = f.hidden_field :'users', name: 'group[user_ids][]', value: user.id
+              %p.chat-group-user__name= user.name
+              .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
