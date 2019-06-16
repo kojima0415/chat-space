@@ -57,4 +57,7 @@ $(document).on('turbolinks:load',function(){
     appendhtml_add_user(id, name);
   });
 
+  $('#chat-group-users').on('click','.user-search-remove', function(){
+    $(this).parent().remove();
   });
+});
