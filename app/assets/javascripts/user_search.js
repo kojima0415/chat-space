@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load',function(){
-  function appendhtml_users(user){
+  function appendhtml_search_results_users(user){
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
                   <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
@@ -7,14 +7,14 @@ $(document).on('turbolinks:load',function(){
     $('#user-search-result').append(html);
   };
 
-  function appendhtml_none(msg){
+  function appendhtml_search_results_users_none(msg){
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${msg}</p>
                 </div>`
     $('#user-search-result').append(html);
   };
 
-  function appendhtml_add_user(id, name){
+  function appendhtml_add_user_to_chatmember(id, name){
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
                   <input name='group[user_ids][]' type='hidden' value='${id}'>
                   <p class='chat-group-user__name'>${name}</p>
@@ -38,11 +38,11 @@ $(document).on('turbolinks:load',function(){
       }else if (users.length !== 0) {
         users.forEach(function(user){
         if (!$("#chat-group-user-" + user.id).length){
-        appendhtml_users(user);
+          appendhtml_search_results_users(user);
         }
         });
       }else{
-        appendhtml_none('一致するユーザーはありません。');
+        appendhtml_search_results_users_none('一致するユーザーはありません。');
       };
     })
     .fail(function () {
@@ -54,7 +54,7 @@ $(document).on('turbolinks:load',function(){
     var id = $(this).attr('data-user-id');
     var name = $(this).attr('data-user-name');
     $(this).parent().remove();
-    appendhtml_add_user(id, name);
+    appendhtml_add_user_to_chatmember(id, name);
   });
 
   $('#chat-group-users').on('click','.user-search-remove', function(){
