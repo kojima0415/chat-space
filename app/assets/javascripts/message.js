@@ -1,0 +1,2 @@
+  var reloadMessages = function() {
+  };
