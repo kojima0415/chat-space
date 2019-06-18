@@ -41,6 +41,10 @@
       var beforeHTMLheight = $('.main-messages')[0].scrollHeight;
       $('.main-messages').append(insertHTML);
       var afterHTMLheight = $('.main-messages')[0].scrollHeight;
+      if (beforeHTMLheight !== afterHTMLheight){
+        $('.main-messages').animate({scrollTop: afterHTMLheight },'fast');
+      };
+    })
     .fail(function() {
       console.log('error');
     });
