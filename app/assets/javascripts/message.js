@@ -39,6 +39,7 @@
         insertHTML = insertHTML + buildMessageHTML(message)
       });
       var beforeHTMLheight = $('.main-messages')[0].scrollHeight;
+      $('.main-messages').append(insertHTML);
     .fail(function() {
       console.log('error');
     });
