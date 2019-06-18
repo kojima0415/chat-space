@@ -53,6 +53,7 @@ $(document).on('turbolinks:load',function() {
 
   var current_url = $(location).attr('href');
   if (current_url.match(/\/groups\/.+\/messages/)){
+    var reloadMessages_interval_status  = setInterval(reloadMessages, 5000);
     });
   };
 });
