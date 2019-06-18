@@ -9,18 +9,19 @@ $(document).on('turbolinks:load',function() {
                     ${message.created_at}
                     </p>
                   </div>
-                  ${message.body == '' ?
-                    ''
-                    :`<p class="main-message__text">
-                        ${message.body}
-                      </p>`
-                  }
                   ${message.image.url == null ?
                     ''
                     :`<img class="lower-message__image" src = ${message.image.url}>`
                   }
                   </div>`
                 return html;
+    var message_body_with_or_without  =`${message.body == '' ?
+                                        ''
+                                        :`<p class="main-message__text">
+                                            ${message.body}
+                                          </p>`
+                                        }`;
+
   };
 
   var reloadMessages = function() {
