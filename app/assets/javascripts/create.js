@@ -1,28 +1,32 @@
 $(document).on('turbolinks:load',function(){
   function buildHTML(message){
-    var html = `<div class="main-message" data-id="${message.id}">
-                  <div class="message-details">
-                    <p class="message-details__user">
-                    ${message.user_name}
-                    </p>
-                    <p class="message-details__informetion">
-                    ${message.created_at}
-                    </p>
-                  </div>
-                  ${message.body == '' ?
-                    ''
-                    :`<p class="main-message__text">
-                        ${message.body}
-                      </p>`
-                  }
-                  ${message.image.url == null ?
-                    ''
-                    :`<img class="lower-message__image" src = ${message.image.url}>`
-                  }
-                  </div>`
-                return html;
+    var message_body_with_or_without  =`${message.body == '' ?
+                                        ''
+                                        :`<p class="main-message__text">
+                                            ${message.body}
+                                          </p>`
+                                        }`;
+
+    var message_image_with_or_without =`${message.image.url == null ?
+                                        ''
+                                        :`<img class="lower-message__image" src = ${message.image.url}>`
+                                        }`;
+    
+    var append_html =`<div class="main-message" data-id="${message.id}">
+                        <div class="message-details">
+                          <p class="message-details__user">
+                            ${message.user_name}
+                          </p>
+                          <p class="message-details__informetion">
+                            ${message.created_at}
+                          </p>
+                        </div>
+                        ${message_body_with_or_without}
+                        ${message_image_with_or_without}
+                      </div>`  
+    return append_html;
   };
-  
+
   $(".input-box").on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
