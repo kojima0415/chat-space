@@ -1,3 +1,27 @@
+  var buildMessageHTML = function(message) {
+    var html = `<div class="main-message" data-id="${message.id}">
+                  <div class="message-details">
+                    <p class="message-details__user">
+                    ${message.user_name}
+                    </p>
+                    <p class="message-details__informetion">
+                    ${message.created_at}
+                    </p>
+                  </div>
+                  ${message.body == '' ?
+                    ''
+                    :`<p class="main-message__text">
+                        ${message.body}
+                      </p>`
+                  }
+                  ${message.image.url == null ?
+                    ''
+                    :`<img class="lower-message__image" src = ${message.image.url}>`
+                  }
+                  </div>`
+                return html;
+  };
+
   var reloadMessages = function() {
     last_message_id = $('.main-message:last').attr('data-id')
     if (last_message_id === void 0){
