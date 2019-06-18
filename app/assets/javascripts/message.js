@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function() {
+$(document).on('turbolinks:load',function(){
   var buildMessageHTML = function(message) {
     var message_body_with_or_without  =`${message.body == '' ?
                                         ''
