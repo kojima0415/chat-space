@@ -1,16 +1,5 @@
 $(document).on('turbolinks:load',function() {
   var buildMessageHTML = function(message) {
-    var html = `<div class="main-message" data-id="${message.id}">
-                  <div class="message-details">
-                    <p class="message-details__user">
-                    ${message.user_name}
-                    </p>
-                    <p class="message-details__informetion">
-                    ${message.created_at}
-                    </p>
-                  </div>
-                  </div>`
-                return html;
     var message_body_with_or_without  =`${message.body == '' ?
                                         ''
                                         :`<p class="main-message__text">
@@ -23,6 +12,19 @@ $(document).on('turbolinks:load',function() {
                                         :`<img class="lower-message__image" src = ${message.image.url}>`
                                         }`;
     
+    var append_html =`<div class="main-message" data-id="${message.id}">
+                        <div class="message-details">
+                          <p class="message-details__user">
+                            ${message.user_name}
+                          </p>
+                          <p class="message-details__informetion">
+                            ${message.created_at}
+                          </p>
+                        </div>
+                        ${message_body_with_or_without}
+                        ${message_image_with_or_without}
+                      </div>`  
+    return append_html;
   };
 
   var reloadMessages = function() {
