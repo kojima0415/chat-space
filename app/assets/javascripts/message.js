@@ -40,6 +40,7 @@
       });
       var beforeHTMLheight = $('.main-messages')[0].scrollHeight;
       $('.main-messages').append(insertHTML);
+      var afterHTMLheight = $('.main-messages')[0].scrollHeight;
     .fail(function() {
       console.log('error');
     });
