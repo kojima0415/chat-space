@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load',function() {
   var buildMessageHTML = function(message) {
     var html = `<div class="main-message" data-id="${message.id}">
                   <div class="message-details">
@@ -50,3 +51,4 @@
     });
   };
   };
+});
