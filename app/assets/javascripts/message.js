@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load',function(){
-  function buildHTML(message){
+  var buildMessageHTML = function(message) {
     var message_body_with_or_without  =`${message.body == '' ?
                                         ''
                                         :`<p class="main-message__text">
@@ -27,29 +27,39 @@ $(document).on('turbolinks:load',function(){
     return append_html;
   };
 
-  $(".input-box").on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action');
+  var reloadMessages = function() {
+    last_message_id = $('.main-message:last').attr('data-id')
+    if (last_message_id === void 0){
+      return false;
+    }
     $.ajax({
-      type: 'POST',
-      url: url,
-      data: formData,
+      url: './api/messages',
+      type: 'get',
       dataType: 'json',
-      processData: false,
-      contentType: false
+      data: {id: last_message_id}
     })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.main-messages').append(html);
-      $(".input-box")[0].reset();
-      $('.main-messages').animate({scrollTop: $('.main-messages')[0].scrollHeight },'fast');
+    .done(function(messages) {
+      var insertHTML = '';
+      messages.forEach(function(message){
+        insertHTML = insertHTML + buildMessageHTML(message)
+      });
+      var beforeHTMLheight = $('.main-messages')[0].scrollHeight;
+      $('.main-messages').append(insertHTML);
+      var afterHTMLheight = $('.main-messages')[0].scrollHeight;
+      if (beforeHTMLheight !== afterHTMLheight){
+        $('.main-messages').animate({scrollTop: afterHTMLheight },'fast');
+      };
     })
-    .fail(function(){
-      alert('メッセージを入力してください。');
-    })
-    .always(function(){
-      $('.input-box__button').removeAttr("disabled");
+    .fail(function() {
+      alert('自動更新に失敗しました。');
     });
-  });
+  };
+
+  var current_url = $(location).attr('href');
+  if (current_url.match(/\/groups\/.+\/messages/)){
+    var reloadMessages_interval_status  = setInterval(reloadMessages, 5000);
+    $(document).on('turbolinks:before-visit', function() {
+      clearInterval(reloadMessages_interval_status);
+    });
+  };
 });
