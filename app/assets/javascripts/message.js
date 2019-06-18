@@ -9,10 +9,6 @@ $(document).on('turbolinks:load',function() {
                     ${message.created_at}
                     </p>
                   </div>
-                  ${message.image.url == null ?
-                    ''
-                    :`<img class="lower-message__image" src = ${message.image.url}>`
-                  }
                   </div>`
                 return html;
     var message_body_with_or_without  =`${message.body == '' ?
@@ -22,6 +18,11 @@ $(document).on('turbolinks:load',function() {
                                           </p>`
                                         }`;
 
+    var message_image_with_or_without =`${message.image.url == null ?
+                                        ''
+                                        :`<img class="lower-message__image" src = ${message.image.url}>`
+                                        }`;
+    
   };
 
   var reloadMessages = function() {
