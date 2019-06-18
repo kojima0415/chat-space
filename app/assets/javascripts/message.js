@@ -38,6 +38,7 @@
       messages.forEach(function(message){
         insertHTML = insertHTML + buildMessageHTML(message)
       });
+      var beforeHTMLheight = $('.main-messages')[0].scrollHeight;
     .fail(function() {
       console.log('error');
     });
