@@ -9,4 +9,8 @@
       dataType: 'json',
       data: {id: last_message_id}
     })
+    .fail(function() {
+      console.log('error');
+    });
+  };
   };
