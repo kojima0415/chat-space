@@ -50,5 +50,7 @@ $(document).on('turbolinks:load',function() {
       console.log('error');
     });
   };
+
+  var current_url = $(location).attr('href');
   };
 });
