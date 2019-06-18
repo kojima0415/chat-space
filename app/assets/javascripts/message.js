@@ -11,6 +11,9 @@
     })
     .done(function(messages) {
       var insertHTML = '';
+      messages.forEach(function(message){
+        insertHTML = insertHTML + buildMessageHTML(message)
+      });
     .fail(function() {
       console.log('error');
     });
